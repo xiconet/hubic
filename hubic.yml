@@ -1,0 +1,35 @@
+user1:
+  oauth:
+    access_token: 
+    client_id: user1_client_id
+    client_secret: user1_client_secret
+    expires_at: 
+    expires_in: 
+    refresh_token: 
+    token_type: Bearer
+  storage:
+    endpoint: 
+    expires: 
+    token: 
+user2:
+  oauth:
+    access_token: 
+    client_id: user2_client_id
+    client_secret: user2_client_secret
+    expires_at: 
+    expires_in: 
+    refresh_token: 
+    token_type: Bearer
+  storage:
+    endpoint: 
+    expires: 
+    token: 	
+misc:
+  host: hubic
+  redirect_uri: your_redirect_uri
+  request_token_uri: https://api.hubic.com/oauth/auth/
+users:
+  current_user: 
+  users:
+  - user1
+  - user2

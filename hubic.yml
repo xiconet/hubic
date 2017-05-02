@@ -31,5 +31,5 @@ misc:
 users:
   current_user: 
   users:
-  - user1
-  - user2
+   - user1
+   - user2

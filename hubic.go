@@ -6,13 +6,18 @@ import (
 	"os"
 	"strings"
 	"strconv"
+	"path/filepath"
 	"github.com/codegangsta/cli"
 	"github.com/xiconet/hubic/gohubic"
 )
 
 const(
 	api_url = "https://api.hubic.com"
-	cfg_file = "C:/Documents and Settings/arc/.config/hubic.yml"
+)
+
+var(
+	home = os.Getenv("userprofile")
+	cfg_file = filepath.Join(home, ".config", "hubic.yml")
 )
 
 func main() {
@@ -22,8 +27,8 @@ func main() {
 	app.Usage = "A client for the hubiC 'rest' api. Lists the specified path if no option is provided. The path may begin by the user's name or id, e.g. user1/path/to/folder"
 	
 	users := map[string]string{} 	// FIXME
-	userlist := []string{} 			// FIXME
-	uids := []string{} 				// FIXME
+	userlist := []string{} 		// FIXME
+	uids := []string{} 		// FIXME
 	app.Flags = []cli.Flag {
 	cli.BoolFlag{
 		Name: "verbose, V",
@@ -141,7 +146,7 @@ func main() {
 		}
 		if path == "" {path = "/"}
 		h := gohubic.NewClient(api_url, cfg_file, user, gohubic.Auth{}, map[string]string{})
-		if !c.Bool("all") {
+		if !c.Bool("all") && !c.Bool("authorize) {
 			h.SetConfig(user)
 		}
 		switch {
